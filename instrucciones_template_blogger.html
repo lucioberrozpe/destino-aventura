@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instrucciones para el Template de Blogger - Destino Aventura</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+        }
+        h1 {
+            color: #2196F3;
+            border-bottom: 2px solid #e0e0e0;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #4CAF50;
+            margin-top: 30px;
+        }
+        h3 {
+            color: #FF9800;
+        }
+        pre {
+            background-color: #f5f5f5;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            border-left: 4px solid #2196F3;
+        }
+        code {
+            font-family: Consolas, Monaco, 'Andale Mono', monospace;
+        }
+        .note {
+            background-color: #fff8e1;
+            border-left: 4px solid #FFC107;
+            padding: 15px;
+            margin: 20px 0;
+        }
+        .important {
+            background-color: #ffebee;
+            border-left: 4px solid #F44336;
+            padding: 15px;
+            margin: 20px 0;
+        }
+        .step {
+            background-color: #e8f5e9;
+            border-left: 4px solid #4CAF50;
+            padding: 15px;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Instrucciones para Implementar el Sistema de Filtrado en Blogger - Destino Aventura</h1>
+    
+    <p>Este documento contiene las instrucciones y el cu00f3digo necesario para implementar un sistema de filtrado avanzado en tu blog de Blogger "Destino Aventura". El sistema permitiru00e1 a los usuarios filtrar las carreras por fecha, tipo, distancia y ubicaciu00f3n.</p>
+    
+    <div class="important">
+        <h3>Importante:</h3>
+        <p>Antes de comenzar, asegu00farate de hacer una copia de seguridad de tu template actual de Blogger. Esto te permitiru00e1 restaurarlo en caso de que algo salga mal.</p>
+    </div>
+    
+    <h2>Paso 1: Subir los archivos a GitHub</h2>
+    
+    <div class="step">
+        <p>Primero, debes subir los siguientes archivos a tu repositorio de GitHub:</p>
+        <ul>
+            <li><strong>filtro_carreras.js</strong> - Contiene la funcionalidad de JavaScript para el filtrado</li>
+            <li><strong>estilo_destino_aventura_v2.css</strong> - Contiene los estilos CSS para el blog</li>
+        </ul>
+        <p>Una vez subidos, obtu00e9n las URLs directas a estos archivos. En GitHub, puedes obtener la URL directa haciendo clic en el archivo, luego en el botu00f3n "Raw" y copiando la URL.</p>
+    </div>
+    
+    <h2>Paso 2: Modificar el Template de Blogger</h2>
+    
+    <div class="step">
+        <p>Sigue estos pasos para modificar tu template de Blogger:</p>
+        <ol>
+            <li>Inicia sesiu00f3n en tu cuenta de Blogger</li>
+            <li>Ve a "Tema" en el menu00fa lateral</li>
+            <li>Haz clic en el botu00f3n "Editar HTML"</li>
+            <li>Busca la etiqueta <code>&lt;/head&gt;</code> en el cu00f3digo</li>
+            <li>Justo antes de <code>&lt;/head&gt;</code>, au00f1ade el siguiente cu00f3digo:</li>
+        </ol>
+    </div>
+    
+    <pre><code>&lt;!-- Estilos personalizados para Destino Aventura --&gt;
+&lt;link href='TU_URL_DE_GITHUB/estilo_destino_aventura_v2.css' rel='stylesheet' type='text/css'/&gt;
+
+&lt;!-- Script para el sistema de filtrado --&gt;
+&lt;script src='TU_URL_DE_GITHUB/filtro_carreras.js' type='text/javascript'&gt;&lt;/script&gt;</code></pre>
+    
+    <div class="note">
+        <p><strong>Nota:</strong> Reemplaza <code>TU_URL_DE_GITHUB</code> con la URL directa a tus archivos en GitHub.</p>
+    </div>
+    
+    <h2>Paso 3: Modificar la Estructura de las Entradas</h2>
+    
+    <div class="step">
+        <p>Para que el sistema de filtrado funcione correctamente, necesitas modificar la estructura de las entradas del blog. Busca la secciu00f3n del template que muestra las entradas del blog. Generalmente, esto se encuentra dentro de un widget de tipo "Blog".</p>
+        
+        <p>Busca algo similar a:</p>
+    </div>
+    
+    <pre><code>&lt;div class='blog-posts hfeed'&gt;
+  &lt;b:loop values='data:posts' var='post'&gt;
+    &lt;div class='post hentry uncustomized-post-template' itemprop='blogPost' itemscope='itemscope' itemtype='http://schema.org/BlogPosting'&gt;
+      &lt;!-- Contenido de la entrada --&gt;
+    &lt;/div&gt;
+  &lt;/b:loop&gt;
+&lt;/div&gt;</code></pre>
+    
+    <div class="step">
+        <p>Dentro de la secciu00f3n <code>&lt;div class='post hentry...'&gt;</code>, asegu00farate de que las etiquetas (labels) se muestren correctamente. Busca una secciu00f3n similar a:</p>
+    </div>
+    
+    <pre><code>&lt;b:if cond='data:post.labels'&gt;
+  &lt;div class='post-labels'&gt;
+    &lt;b:loop values='data:post.labels' var='label'&gt;
+      &lt;a expr:href='data:label.url' rel='tag'&gt;&lt;data:label.name/&gt;&lt;/a&gt;
+    &lt;/b:loop&gt;
+  &lt;/div&gt;
+&lt;/b:if&gt;</code></pre>
+    
+    <div class="note">
+        <p><strong>Nota:</strong> Si no encuentras esta secciu00f3n, puede que tu template tenga una estructura diferente. En ese caso, deberu00e1s buscar du00f3nde se muestran las etiquetas y asegurarte de que estu00e1n visibles.</p>
+    </div>
+    
+    <h2>Paso 4: Au00f1adir el Panel de Filtros</h2>
+    
+    <div class="step">
+        <p>El script <code>filtro_carreras.js</code> crearu00e1 automu00e1ticamente el panel de filtros al principio de la secciu00f3n de entradas del blog. Sin embargo, si prefieres colocarlo en otro lugar, puedes au00f1adir manualmente el siguiente cu00f3digo en la ubicaciu00f3n deseada:</p>
+    </div>
+    
+    <pre><code>&lt;div id='filtros-carreras' class='filtros-container'&gt;
+  &lt;h3&gt;Filtrar Carreras&lt;/h3&gt;
+  
+  &lt;div class='grupo-filtro'&gt;
+    &lt;label for='filtro-fecha'&gt;Fecha (Mes/Au00f1o)&lt;/label&gt;
+    &lt;select id='filtro-fecha' class='filtro-select'&gt;
+      &lt;option value=''&gt;Todos&lt;/option&gt;
+    &lt;/select&gt;
+  &lt;/div&gt;
+  
+  &lt;div class='grupo-filtro'&gt;
+    &lt;label for='filtro-tipo'&gt;Tipo de Carrera&lt;/label&gt;
+    &lt;select id='filtro-tipo' class='filtro-select'&gt;
+      &lt;option value=''&gt;Todos&lt;/option&gt;
+    &lt;/select&gt;
+  &lt;/div&gt;
+  
+  &lt;div class='grupo-filtro'&gt;
+    &lt;label for='filtro-distancia'&gt;Distancia&lt;/label&gt;
+    &lt;select id='filtro-distancia' class='filtro-select'&gt;
+      &lt;option value=''&gt;Todos&lt;/option&gt;
+    &lt;/select&gt;
+  &lt;/div&gt;
+  
+  &lt;div class='grupo-filtro'&gt;
+    &lt;label for='filtro-ubicacion'&gt;Ubicaciu00f3n&lt;/label&gt;
+    &lt;select id='filtro-ubicacion' class='filtro-select'&gt;
+      &lt;option value=''&gt;Todos&lt;/option&gt;
+    &lt;/select&gt;
+  &lt;/div&gt;
+  
+  &lt;button id='btn-limpiar-filtros' class='btn-limpiar'&gt;Limpiar Filtros&lt;/button&gt;
+  
+  &lt;div id='contador-resultados' class='contador-resultados'&gt;&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+    
+    <h2>Paso 5: Generar y Subir las Entradas con Etiquetas</h2>
+    
+    <div class="step">
+        <p>Utiliza el script <code>generar_entradas_blog_v3.py</code> para generar las entradas de blog con las etiquetas adecuadas para el filtrado. Este script genera archivos XML que puedes importar a Blogger.</p>
+        
+        <ol>
+            <li>Ejecuta el script <code>generar_entradas_blog_v3.py</code></li>
+            <li>Se generaru00e1n varios archivos XML con un mu00e1ximo de 50 entradas cada uno</li>
+            <li>Importa estos archivos a Blogger desde el menu00fa "Configuraciu00f3n" > "Importar contenido"</li>
+        </ol>
+    </div>
+    
+    <div class="important">
+        <h3>Importante:</h3>
+        <p>Asegu00farate de que las etiquetas (labels) se importen correctamente con las entradas. Estas etiquetas son fundamentales para que el sistema de filtrado funcione.</p>
+    </div>
+    
+    <h2>Paso 6: Probar el Sistema de Filtrado</h2>
+    
+    <div class="step">
+        <p>Una vez que hayas completado todos los pasos anteriores:</p>
+        
+        <ol>
+            <li>Visita tu blog</li>
+            <li>Deberu00edas ver el panel de filtros al principio de la secciu00f3n de entradas</li>
+            <li>Prueba a filtrar las carreras por diferentes criterios</li>
+            <li>Verifica que los resultados se actualicen correctamente</li>
+        </ol>
+    </div>
+    
+    <div class="note">
+        <p><strong>Nota:</strong> Si el sistema de filtrado no funciona correctamente, verifica la consola del navegador (F12) para ver si hay errores de JavaScript.</p>
+    </div>
+    
+    <h2>Personalizaciu00f3n Adicional</h2>
+    
+    <p>Puedes personalizar los estilos del sistema de filtrado modificando el archivo <code>estilo_destino_aventura_v2.css</code>. Algunos aspectos que podru00edas querer personalizar:</p>
+    
+    <ul>
+        <li>Colores de los filtros y botones</li>
+        <li>Tamau00f1os de fuente</li>
+        <li>Espaciado y mu00e1rgenes</li>
+        <li>Apariencia de las etiquetas (labels)</li>
+    </ul>
+    
+    <div class="note">
+        <p><strong>Recuerda:</strong> Cada vez que modifiques los archivos en GitHub, los cambios se reflejaru00e1n automu00e1ticamente en tu blog la pru00f3xima vez que los usuarios lo visiten (puede haber un pequeu00f1o retraso debido al cachu00e9 del navegador).</p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,444 @@
+<?xml version="1.0" encoding="UTF-8" ?>>
+<!DOCTYPE html>
+<html b:css='false' b:js='false' b:defaultwidgetversion='2' b:layoutsVersion='3' expr:dir='data:blog.languageDirection' expr:lang='data:blog.locale' xmlns='http://www.w3.org/1999/xhtml' xmlns:b='http://www.google.com/2005/gml/b' xmlns:data='http://www.google.com/2005/gml/data' xmlns:expr='http://www.google.com/2005/gml/expr'>
+<head>
+  <meta content='width=device-width, initial-scale=1' name='viewport'/>
+  <title><data:blog.title/></title>
+  <b:include data='blog' name='all-head-content'/>
+
+  <!-- Estilos personalizados para Destino Aventura -->
+  <link href='https://raw.githubusercontent.com/TU_USUARIO/destino-aventura/main/estilo_destino_aventura_v2.css' rel='stylesheet' type='text/css'/>
+
+  <!-- Script para el sistema de filtrado -->
+  <script src='https://raw.githubusercontent.com/TU_USUARIO/destino-aventura/main/filtro_carreras.js' type='text/javascript'></script>
+
+  <b:skin><![CDATA[
+  /* Variables */
+  :root {
+    --main-color: #2196F3;
+    --accent-color: #FF9800;
+    --dark-color: #333;
+    --light-color: #f5f5f5;
+    --border-color: #e0e0e0;
+    --font-main: 'Roboto', Arial, sans-serif;
+  }
+
+  /* Reseteo básico */
+  body {
+    font-family: var(--font-main);
+    line-height: 1.6;
+    color: var(--dark-color);
+    background-color: #f9f9f9;
+    margin: 0;
+    padding: 0;
+  }
+
+  a {
+    color: var(--main-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+
+  a:hover {
+    color: var(--accent-color);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-main);
+    margin: 0 0 15px 0;
+  }
+
+  /* Layout */
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+  }
+
+  .header-wrapper {
+    background-color: var(--main-color);
+    color: white;
+    padding: 20px 0;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  }
+
+  .header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .main-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 30px 0;
+  }
+
+  .main {
+    flex: 1;
+    min-width: 0;
+    padding-right: 30px;
+  }
+
+  .sidebar-wrapper {
+    width: 300px;
+  }
+
+  .footer-wrapper {
+    background-color: var(--dark-color);
+    color: white;
+    padding: 30px 0;
+    margin-top: 30px;
+  }
+
+  /* Header */
+  .header .title {
+    font-size: 32px;
+    font-weight: bold;
+    margin: 0;
+  }
+
+  .header .title a {
+    color: white;
+  }
+
+  .header .description {
+    margin: 5px 0 0 0;
+    font-size: 16px;
+    opacity: 0.8;
+  }
+
+  /* Navegación */
+  .nav-menu {
+    background-color: white;
+    border-bottom: 1px solid var(--border-color);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+  }
+
+  .nav-menu ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .nav-menu li {
+    margin: 0;
+  }
+
+  .nav-menu a {
+    display: block;
+    padding: 15px 20px;
+    color: var(--dark-color);
+    font-weight: 500;
+    transition: all 0.3s ease;
+  }
+
+  .nav-menu a:hover {
+    background-color: var(--light-color);
+    color: var(--main-color);
+  }
+
+  /* Entradas del blog */
+  .post {
+    margin-bottom: 40px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    overflow: hidden;
+  }
+
+  .post-header {
+    padding: 20px 20px 0 20px;
+  }
+
+  .post-title {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+
+  .post-title a {
+    color: var(--dark-color);
+  }
+
+  .post-title a:hover {
+    color: var(--main-color);
+  }
+
+  .post-body {
+    padding: 0 20px 20px 20px;
+  }
+
+  .post-footer {
+    padding: 15px 20px;
+    background-color: var(--light-color);
+    border-top: 1px solid var(--border-color);
+    font-size: 14px;
+  }
+
+  .post-labels {
+    margin-top: 10px;
+  }
+
+  .post-labels a {
+    display: inline-block;
+    margin-right: 5px;
+    padding: 3px 8px;
+    background-color: var(--light-color);
+    border-radius: 3px;
+    font-size: 12px;
+    color: var(--dark-color);
+  }
+
+  .post-labels a:hover {
+    background-color: var(--main-color);
+    color: white;
+  }
+
+  /* Sidebar */
+  .sidebar .widget {
+    margin-bottom: 30px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    padding: 20px;
+  }
+
+  .sidebar .widget h2 {
+    font-size: 18px;
+    margin-top: 0;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--border-color);
+  }
+
+  /* Footer */
+  .footer {
+    text-align: center;
+  }
+
+  .footer-credits {
+    margin-top: 20px;
+    font-size: 14px;
+    opacity: 0.8;
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .header-content {
+      flex-direction: column;
+      text-align: center;
+    }
+    
+    .main-wrapper {
+      flex-direction: column;
+    }
+    
+    .main {
+      padding-right: 0;
+    }
+    
+    .sidebar-wrapper {
+      width: 100%;
+      margin-top: 30px;
+    }
+    
+    .nav-menu ul {
+      flex-wrap: wrap;
+    }
+  }
+  ]]></b:skin>
+</head>
+
+<body>
+  <!-- Header -->
+  <div class='header-wrapper'>
+    <div class='container'>
+      <div class='header-content'>
+        <div class='header'>
+          <h1 class='title'>
+            <b:if cond='data:blog.url == data:blog.homepageUrl'>
+              <data:blog.title/>
+            <b:else/>
+              <a expr:href='data:blog.homepageUrl'><data:blog.title/></a>
+            </b:if>
+          </h1>
+          <p class='description'><data:blog.description/></p>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Navegación -->
+  <div class='nav-menu'>
+    <div class='container'>
+      <ul>
+        <li><a href='/'>Inicio</a></li>
+        <li><a href='/search/label/Carreras'>Carreras</a></li>
+        <li><a href='/p/sobre-nosotros.html'>Sobre Nosotros</a></li>
+        <li><a href='/p/contacto.html'>Contacto</a></li>
+      </ul>
+    </div>
+  </div>
+  
+  <!-- Contenido principal -->
+  <div class='container'>
+    <div class='main-wrapper'>
+      <div class='main' id='main'>
+        <!-- Panel de filtros (se insertará automáticamente por JavaScript) -->
+        
+        <!-- Entradas del blog -->
+        <b:section class='blog-posts' id='blog-posts' showaddelement='false'>
+          <b:widget id='Blog1' locked='true' title='Entradas del blog' type='Blog' version='2'>
+            <b:widget-settings>
+              <b:widget-setting name='showDateHeader'>false</b:widget-setting>
+              <b:widget-setting name='style.textcolor'>#000000</b:widget-setting>
+              <b:widget-setting name='showShareButtons'>true</b:widget-setting>
+              <b:widget-setting name='showCommentLink'>true</b:widget-setting>
+              <b:widget-setting name='style.urlcolor'>#008000</b:widget-setting>
+              <b:widget-setting name='showAuthor'>false</b:widget-setting>
+              <b:widget-setting name='style.linkcolor'>#0000ff</b:widget-setting>
+              <b:widget-setting name='style.unittype'>TextAndImage</b:widget-setting>
+              <b:widget-setting name='style.bgcolor'>#ffffff</b:widget-setting>
+              <b:widget-setting name='showAuthorProfile'>false</b:widget-setting>
+              <b:widget-setting name='style.layout'>1x1</b:widget-setting>
+              <b:widget-setting name='showLabels'>true</b:widget-setting>
+              <b:widget-setting name='showLocation'>true</b:widget-setting>
+              <b:widget-setting name='showTimestamp'>true</b:widget-setting>
+              <b:widget-setting name='postsPerAd'>1</b:widget-setting>
+              <b:widget-setting name='showBacklinks'>false</b:widget-setting>
+              <b:widget-setting name='style.bordercolor'>#ffffff</b:widget-setting>
+              <b:widget-setting name='showInlineAds'>false</b:widget-setting>
+              <b:widget-setting name='showReactions'>false</b:widget-setting>
+            </b:widget-settings>
+            <b:includable id='main' var='top'>
+              <b:include name='super.main'/>
+            </b:includable>
+            <b:includable id='posts' var='posts'>
+              <div class='blog-posts hfeed'>
+                <b:loop values='data:posts' var='post'>
+                  <div class='post hentry'>
+                    <div class='post-header'>
+                      <h2 class='post-title'>
+                        <b:if cond='data:post.link or (data:post.url and data:blog.url != data:post.url)'>
+                          <a expr:href='data:post.link ?: data:post.url'><data:post.title/></a>
+                        <b:else/>
+                          <data:post.title/>
+                        </b:if>
+                      </h2>
+                      <div class='post-meta'>
+                        <span class='post-timestamp'>
+                          <b:if cond='data:post.url'>
+                            <a class='timestamp-link' expr:href='data:post.url'>
+                              <data:post.timestamp/>
+                            </a>
+                          <b:else/>
+                            <data:post.timestamp/>
+                          </b:if>
+                        </span>
+                      </div>
+                    </div>
+                    <div class='post-body'>
+                      <data:post.body/>
+                    </div>
+                    <div class='post-footer'>
+                      <b:if cond='data:post.labels'>
+                        <div class='post-labels'>
+                          <b:loop values='data:post.labels' var='label'>
+                            <a expr:href='data:label.url' rel='tag'><data:label.name/></a>
+                          </b:loop>
+                        </div>
+                      </b:if>
+                    </div>
+                  </div>
+                </b:loop>
+              </div>
+              <b:include name='nextprev'/>
+            </b:includable>
+          </b:widget>
+        </b:section>
+      </div>
+      
+      <!-- Sidebar -->
+      <div class='sidebar-wrapper'>
+        <div class='sidebar'>
+          <b:section class='sidebar-widgets' id='sidebar' showaddelement='true'>
+            <b:widget id='HTML1' locked='false' title='Próximas Carreras' type='HTML' version='2'>
+              <b:widget-settings>
+                <b:widget-setting name='content'>
+                  <![CDATA[
+                  <div class="proximas-carreras">
+                    <ul>
+                      <li>
+                        <strong>15/03/2025</strong> - Odissea di Notte
+                        <span class="distancia">7k, 10k, 21k</span>
+                      </li>
+                      <li>
+                        <strong>22/03/2025</strong> - Maratón de Buenos Aires
+                        <span class="distancia">10k, 21k, 42k</span>
+                      </li>
+                      <li>
+                        <strong>05/04/2025</strong> - Trail Running Tandil
+                        <span class="distancia">15k, 30k</span>
+                      </li>
+                    </ul>
+                  </div>
+                  ]]>
+                </b:widget-setting>
+              </b:widget-settings>
+              <b:includable id='main'>
+                <h2 class='title'><data:title/></h2>
+                <div class='widget-content'>
+                  <data:content/>
+                </div>
+              </b:includable>
+            </b:widget>
+            <b:widget id='Label1' locked='false' title='Categorías' type='Label' version='2'>
+              <b:widget-settings>
+                <b:widget-setting name='sorting'>ALPHA</b:widget-setting>
+                <b:widget-setting name='display'>LIST</b:widget-setting>
+                <b:widget-setting name='selectedLabelsList'/>
+                <b:widget-setting name='showType'>ALL</b:widget-setting>
+                <b:widget-setting name='showFreqNumbers'>false</b:widget-setting>
+              </b:widget-settings>
+              <b:includable id='main' var='this'>
+                <b:include name='super.main'/>
+              </b:includable>
+            </b:widget>
+            <b:widget id='BlogArchive1' locked='false' title='Archivo' type='BlogArchive' version='2'>
+              <b:widget-settings>
+                <b:widget-setting name='showStyle'>FLAT</b:widget-setting>
+                <b:widget-setting name='yearPattern'>yyyy</b:widget-setting>
+                <b:widget-setting name='showWeekEnd'>true</b:widget-setting>
+                <b:widget-setting name='monthPattern'>MMMM yyyy</b:widget-setting>
+                <b:widget-setting name='dayPattern'>MMM dd</b:widget-setting>
+                <b:widget-setting name='weekPattern'>MM/dd</b:widget-setting>
+                <b:widget-setting name='chronological'>false</b:widget-setting>
+                <b:widget-setting name='showPosts'>true</b:widget-setting>
+                <b:widget-setting name='frequency'>MONTHLY</b:widget-setting>
+              </b:widget-settings>
+              <b:includable id='main' var='this'>
+                <b:include name='super.main'/>
+              </b:includable>
+            </b:widget>
+          </b:section>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Footer -->
+  <div class='footer-wrapper'>
+    <div class='container'>
+      <div class='footer'>
+        <div class='footer-content'>
+          <p>Destino Aventura - Tu guía para encontrar las mejores carreras</p>
+        </div>
+        <div class='footer-credits'>
+          <p>© <script>document.write(new Date().getFullYear())</script> Destino Aventura. Todos los derechos reservados.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
