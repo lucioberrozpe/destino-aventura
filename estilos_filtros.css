@@ -1,0 +1,179 @@
+/* Estilos optimizados para el sistema de filtrado */
+
+/* Contenedor principal de filtros */
+.filtros-container {
+    background-color: #f8f9fa;
+    padding: 20px;
+    margin-bottom: 30px;
+    border-radius: 8px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    border: 1px solid #e9ecef;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+/* Titulo del panel de filtros */
+.filtros-container h3 {
+    margin-top: 0;
+    margin-bottom: 20px;
+    color: #343a40;
+    font-size: 20px;
+    font-weight: 700;
+    border-bottom: 2px solid #dee2e6;
+    padding-bottom: 10px;
+    text-align: center;
+}
+
+/* Grupo de filtro individual */
+.grupo-filtro {
+    margin-bottom: 15px;
+}
+
+/* Etiquetas de los filtros */
+.grupo-filtro label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #495057;
+    font-size: 15px;
+}
+
+/* Selectores de filtro */
+.filtro-select {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #ced4da;
+    border-radius: 6px;
+    background-color: #fff;
+    font-family: inherit;
+    font-size: 14px;
+    transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%23343a40' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    background-size: 16px 12px;
+    padding-right: 30px;
+}
+
+.filtro-select:focus {
+    border-color: #80bdff;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+/* Botones de filtrado */
+.botones-filtro {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.boton-filtrar,
+.boton-limpiar {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.boton-filtrar {
+    background-color: #007bff;
+    color: white;
+    flex: 1;
+    margin-right: 10px;
+}
+
+.boton-filtrar:hover {
+    background-color: #0069d9;
+}
+
+.boton-limpiar {
+    background-color: #6c757d;
+    color: white;
+    flex: 1;
+}
+
+.boton-limpiar:hover {
+    background-color: #5a6268;
+}
+
+.boton-filtrar:active,
+.boton-limpiar:active {
+    transform: scale(0.98);
+}
+
+/* Estado de filtrado */
+.estado-filtro {
+    background-color: #e2f0fd;
+    padding: 10px 15px;
+    border-radius: 6px;
+    margin-bottom: 20px;
+    font-size: 14px;
+    color: #0c5460;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.estado-filtro a {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.estado-filtro a:hover {
+    text-decoration: underline;
+}
+
+/* Mensaje de sin resultados */
+.sin-resultados {
+    background-color: #f8d7da;
+    color: #721c24;
+    padding: 15px;
+    border-radius: 6px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.sin-resultados p {
+    margin-bottom: 10px;
+}
+
+.sin-resultados .boton-limpiar {
+    background-color: #dc3545;
+    display: inline-block;
+    margin: 0;
+}
+
+.sin-resultados .boton-limpiar:hover {
+    background-color: #c82333;
+}
+
+/* Responsive */
+@media (min-width: 768px) {
+    .filtros-container {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 15px;
+    }
+    
+    .filtros-container h3 {
+        grid-column: 1 / -1;
+    }
+    
+    .botones-filtro {
+        grid-column: 1 / -1;
+    }
+}
+
+@media (min-width: 992px) {
+    .filtros-container {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
