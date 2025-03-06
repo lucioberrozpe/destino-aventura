@@ -7,10 +7,10 @@
   <b:include data='blog' name='all-head-content'/>
 
   <!-- Estilos personalizados para Destino Aventura -->
-  <link href='https://raw.githubusercontent.com/TU_USUARIO/destino-aventura/main/estilo_destino_aventura_v2.css' rel='stylesheet' type='text/css'/>
+  <link href='https://raw.githubusercontent.com/lucioberrozpe/destino-aventura/main/estilo_destino_aventura_v2.css' rel='stylesheet' type='text/css'/>
 
   <!-- Script para el sistema de filtrado -->
-  <script src='https://raw.githubusercontent.com/TU_USUARIO/destino-aventura/main/filtro_carreras.js' type='text/javascript'></script>
+  <script src='https://raw.githubusercontent.com/lucioberrozpe/destino-aventura/main/filtro_carreras.js' type='text/javascript'></script>
 
   <b:skin><![CDATA[
   /* Variables */
