@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" ?>>
+<?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE html>
 <html b:css='false' b:js='false' b:defaultwidgetversion='2' b:layoutsVersion='3' expr:dir='data:blog.languageDirection' expr:lang='data:blog.locale' xmlns='http://www.w3.org/1999/xhtml' xmlns:b='http://www.google.com/2005/gml/b' xmlns:data='http://www.google.com/2005/gml/data' xmlns:expr='http://www.google.com/2005/gml/expr'>
 <head>
@@ -435,7 +435,7 @@
           <p>Destino Aventura - Tu guía para encontrar las mejores carreras</p>
         </div>
         <div class='footer-credits'>
-          <p>© <script>document.write(new Date().getFullYear())</script> Destino Aventura. Todos los derechos reservados.</p>
+          <p>  <script>document.write(new Date().getFullYear())</script> Destino Aventura. Todos los derechos reservados.</p>
         </div>
       </div>
     </div>
